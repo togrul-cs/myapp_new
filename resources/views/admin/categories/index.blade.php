@@ -5,6 +5,11 @@
 
 @section('content')
 
+    @if(Session::has('deleted_category'))
+
+        <p class="bg-danger"> {{session('deleted_category')}}</p>
+
+    @endif
 
     <h1 class="page-header">Categories</h1>
 

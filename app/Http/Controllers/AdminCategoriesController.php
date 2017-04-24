@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class AdminCategoriesController extends Controller
 {
@@ -114,9 +115,11 @@ class AdminCategoriesController extends Controller
 
         Category::findOrFail($id)->delete();
 
+        Session::flash('deleted_category', 'The category has been deleted');
+
         return redirect('/admin/categories');
 
-
-
     }
+
+
 }

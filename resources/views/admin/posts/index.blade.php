@@ -5,6 +5,11 @@
 
 @section('content')
 
+    @if(Session::has('deleted_post'))
+
+        <p class="bg-danger"> {{session('deleted_post')}}</p>
+
+    @endif
 
 <h1 class="page-header">Posts</h1>
 
