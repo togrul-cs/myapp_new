@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -9,6 +11,11 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
+                    @if (Auth::guest())
+                        <div><a href="{{ url('/login') }}">Login</a></div>
+                    @else
+
+                    @endif
                 </div>
             </div>
         </div>

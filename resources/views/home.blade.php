@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <div><a href="{{ url('/admin') }}">Go to admin panel</a></div>
                 </div>
             </div>
         </div>

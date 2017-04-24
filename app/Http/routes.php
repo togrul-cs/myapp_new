@@ -12,15 +12,16 @@
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return view('welcome');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware'=>'auth'], function () {
 
+    Route::get('/home', 'HomeController@index');
 
-
+});
 
 Route::group(['middleware'=>'auth'], function () {
 
@@ -36,6 +37,10 @@ Route::group(['middleware'=>'auth'], function () {
 Route::group(['middleware'=>'admin'], function(){
 
     Route::resource('admin/users', 'AdminUsersController');
+
+    Route::resource('admin/posts', 'AdminPostsController');
+
+    Route::resource('admin/categories', 'AdminCategoriesController');
 
 
 });
